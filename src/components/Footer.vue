@@ -1,6 +1,6 @@
 <template>
-    <div class="mv-footer">
-        <div class="mv-footer__lang">
+    <div class="mc-footer">
+        <div class="mc-footer__lang">
             <b>
                 FR
             </b>
@@ -14,7 +14,7 @@
             </b>
             If we speak technical, no problem
         </div>
-        <div class="mv-footer__end">
+        <div class="mc-footer__end">
             <a
                 href="https://letsignit.fr"
                 target="_blank"
@@ -33,11 +33,10 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.mv-footer {
+.mc-footer {
     &__lang {
         text-align: center;
         margin-top: 100px;
-        color: #d8dee9;
         font-size: 20px;
         font-weight: 300;
         letter-spacing: 0;
@@ -59,8 +58,8 @@ export default {};
         margin-top: 100px;
         height: 390px;
         width: 100%;
-        box-sizing: border-box;
         background-color: #111111;
+        box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -68,6 +67,19 @@ export default {};
         img {
             width: 700px;
         }
+    }
+}
+</style>
+
+<style lang="scss" scoped>
+@media (prefers-color-scheme: light) {
+    .mc-footer {
+        color : #3B4252;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .mc-footer {
+        color: #d8dee9;
     }
 }
 </style>

@@ -92,12 +92,10 @@ export default {};
         font-size: 40px;
         letter-spacing: 0;
         text-align: center;
-        color: #d8dee9;
         margin-top: 110px;
         margin-bottom: 100px;
 
         span {
-            color: #d8dee9;
             font-family: "Fira Code";
             font-size: 60px;
             letter-spacing: 0;
@@ -108,23 +106,71 @@ export default {};
 
     h2 {
         margin-left: 90px;
-        color: #d8dee9;
         font-size: 40px;
         letter-spacing: 0;
     }
 
     a {
-        color: #d8dee9;
         text-decoration: none;
         font-weight: bold;
     }
 
     p {
         margin-left: 144px;
-        color: #81a1c1;
         font-size: 24px;
         letter-spacing: 0;
         line-height: 32px;
+    }
+}
+</style>
+
+<style lang="scss" scoped>
+@media (prefers-color-scheme: light) {
+    .mc-travaux {
+
+        h1 {
+            color: #2e3440;
+
+            small {
+                color: #d8dee9;
+            }
+        }
+
+        h2 {
+            color: #2e3440;
+        }
+
+        a {
+            color: #3B4252;
+        }
+
+        p {
+            color: #4C566A;
+        }
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .mc-travaux {
+
+        h1 {
+            color: #d8dee9;
+
+            small {
+                color: #d8dee9;
+            }
+        }
+
+        h2 {
+            color: #d8dee9;
+        }
+
+        a {
+            color: #d8dee9;
+        }
+
+        p {
+            color: #81a1c1;
+        }
     }
 }
 </style>
