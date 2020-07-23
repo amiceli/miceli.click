@@ -33,7 +33,7 @@ import Travaux from '@/components/Travaux.vue';
 export default {
   name: 'Home',
   data() {
-    return { isMobile: true };
+    return { isMobile: false };
   },
   components: {
     Presentation,
@@ -43,7 +43,7 @@ export default {
     Travaux,
   },
   mounted() {
-    // this.isMobile = /Mobi/.test(navigator.userAgent);
+    this.isMobile = /Mobi/.test(navigator.userAgent);
   },
 };
 </script>
