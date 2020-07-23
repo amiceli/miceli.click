@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import 'wenk';
+import 'shareon/dist/shareon.min.css';
 
 Vue.config.productionTip = false;
 
