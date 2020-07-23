@@ -20,6 +20,11 @@ export default {
   components: {
     Presentation, Parcours, Footer, Cosmos, Travaux,
   },
+  mounted() {
+    if (/Mobi/.test(navigator.userAgent)) {
+      this.$router.push({ name: 'mobile' });
+    }
+  },
 };
 </script>
 
