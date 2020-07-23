@@ -1,6 +1,6 @@
 <template>
     <div class="mc-parcours">
-        <img src="@/assets/parcours.svg" alt="mon parcours" />
+        <img src="@/assets/plan.png" alt="mon parcours" />
     </div>
 </template>
 
