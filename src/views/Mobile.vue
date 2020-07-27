@@ -9,14 +9,35 @@
             p Pour une meilleur expérience, c'est plus sympa en mode paysage.
 
     slide(:steps="4")
-      p(v-if="step >= 1")
-        | {{step}}
-      p(v-if="step >= 2")
-        | {{step}}
-      p(v-if="step >= 3")
-        | {{step}}
-      p(v-if="step >= 4")
-        | {{step}}
+        .step--1.is--step(v-if="step === 1")
+            .step--1__wrap
+                //- img.for--profile(src="@/assets/profile.png", alt="profile photo")
+                h1 Choisissez un travail que vous aimez et vous n'aurez pas à travailler un seul jour de votre vie.
+                    br
+                    small Confucius
+                .step--1__details
+                    div
+                        img(
+                            src="@/assets/map-location.png",
+                            alt="icon-location"
+                        )
+                        span Marseille
+                    div
+                        img(src="@/assets/megaphone.png", alt="icon-megaphone")
+                        span(data-wenk="Vue Typescript Php")
+                            | Lead dev&nbsp;
+                            b VTP
+                    div
+                        img(src="@/assets/heart.png", alt="icon-heart")
+                        span Passion&eacute;
+
+        .step--2.is--step(v-if="step === 2")
+            img(src="@/assets/mobile-skill.png", alt="skill mobile version")
+        .step--3.is--step(v-if="step === 3")
+            img(src="@/assets/parcours.svg", alt="mon parcours")
+            | {{ step }}
+        p(v-if="step >= 4")
+            | {{ step }}
 </template>
 
 <script>
@@ -29,6 +50,7 @@ export default {
   },
   mounted() {
     this.isPortrait = ![-90, 90].includes(window.orientation);
+    console.log('ok');
 
     window.addEventListener('orientationchange', () => {
       this.isPortrait = ![-90, 90].includes(window.orientation);
@@ -37,8 +59,27 @@ export default {
 };
 </script>
 
+<style lang="scss">
+.eg-slide-content,
+.eg-slide {
+    height: 100%;
+    width: 100%;
+}
+</style>
 <style lang="scss" scoped>
+@mixin flexAlign() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .mc-home--mobile {
+    height: 100%;
+    width: 100%;
+
+    .for--profile {
+        width: 100px;
+    }
+
     .for--landscape-mode {
         position: fixed;
         top: 20px;
@@ -61,6 +102,68 @@ export default {
 
         p {
             color: #d8dee9;
+        }
+    }
+
+    .is--step {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .step--2 {
+        @include flexAlign();
+
+        img {
+            height: 90%;
+        }
+    }
+
+    .step--3 {
+        @include flexAlign();
+
+        img {
+            width: 90%;
+        }
+    }
+
+    .step--1 {
+        @include flexAlign();
+
+        &__wrap {
+            display: inline-block;
+            text-align: center;
+        }
+
+        &__details {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+
+            div {
+                display: inline-block;
+                width: 200px;
+                color: #d8dee9;
+                font-size: 20px;
+
+                img {
+                    margin-right: 10px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 22px;
+            padding-left: 120px;
+            padding-right: 120px;
+            color: #d8dee9;
+
+            small {
+                font-size: 20px;
+                color: #5e81ac;
+            }
         }
     }
 }

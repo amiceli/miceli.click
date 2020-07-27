@@ -9,10 +9,15 @@
 
     html, body {
         width: 100%;
+        height: 100%;
         margin: 0;
         padding: 0;
         background: #2e3440;
         font-family: 'Exo', sans-serif;
         overflow-x: hidden;
+    }
+
+    #app {
+        height: 100%;
     }
 </style>

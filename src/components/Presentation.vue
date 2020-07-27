@@ -14,29 +14,7 @@
             </small>
         </h1>
         <div class="ac-presentation__details">
-            <div>
-                <img
-                    src="@/assets/map-location.png"
-                    alt="icon-location"
-                />
-                <span>Marseille</span>
-            </div>
-            <div>
-                <img
-                    src="@/assets/megaphone.png"
-                    alt="icon-megaphone"
-                />
-                <span data-wenk="Vue Typescript Php">
-                    Lead dev <b>VTP</b>
-                </span>
-            </div>
-            <div>
-                <img
-                    src="@/assets/heart.png"
-                    alt="icon-heart"
-                />
-                <span>Passioné</span>
-            </div>
+            <PresentationDetails />
         </div>
         <div class="ac-presentation__continue">
             <img
@@ -48,7 +26,11 @@
 </template>
 
 <script>
-export default {};
+import PresentationDetails from '@/components/PresentationDetails.vue';
+
+export default {
+  components: { PresentationDetails },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -75,27 +57,7 @@ export default {};
     }
 
     &__details {
-        text-align: right;
         margin-top: 200px;
-        color: #d8dee9;
-        font-size: 20px;
-        letter-spacing: 0;
-
-        div {
-            height: 40px;
-            line-height: 40px;
-            margin-right: 30px;
-        }
-
-        img {
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-
-        span {
-            width: 136px;
-            display: inline-block;
-        }
     }
 
     &__profile {
