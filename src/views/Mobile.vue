@@ -8,10 +8,9 @@
             )
             p Pour une meilleur expérience, c'est plus sympa en mode paysage.
 
-    slide(:steps="4")
+    slide(:steps="5")
         .step--1.is--step(v-if="step === 1")
             .step--1__wrap
-                //- img.for--profile(src="@/assets/profile.png", alt="profile photo")
                 h1 Choisissez un travail que vous aimez et vous n'aurez pas à travailler un seul jour de votre vie.
                     br
                     small Confucius
@@ -34,10 +33,36 @@
         .step--2.is--step(v-if="step === 2")
             img(src="@/assets/mobile-skill.png", alt="skill mobile version")
         .step--3.is--step(v-if="step === 3")
-            img(src="@/assets/parcours.svg", alt="mon parcours")
-            | {{ step }}
-        p(v-if="step >= 4")
-            | {{ step }}
+            img(src="@/assets/plan.png", alt="mon parcours")
+        .step--4.is--step(v-if="step === 4")
+            div.step--4__wrap
+                h1
+                    span {
+                    | Dev le jour, dev la nuit
+                    span }
+                br
+                p
+                    | Quelques uns de mes projets
+                a(href="https://developeracronym.co" rel="noopener noreferrer" target="_blank")
+                    |    developeracronym.co
+                br
+                a(href='https://beat-time.netlify.app' target='_blank' rel='noopener noreferrer')
+                    | beat-time.netlify.app
+                br
+                a(href='https://github.com/amiceli/mailparser' target='_blank' rel='noopener noreferrer')
+                    | mailparser
+                br
+                p
+                    | Si t&rsquo;as le temps, jette un oeil sur mon&nbsp;
+                    a(href='https://github.com/amiceli' target='_blank' rel='noopener noreferrer')
+                        | github
+                        | .
+                    br
+                    |     Y a des outils en ligne de commande pour les dev, le terminal y a que &ccedil;a de vrai !
+        .step--5.is--step(v-if="step === 5")
+            a(v-if="!loading" href='https://letsignit.fr' rel='noopener noreferrer' target='_blank')
+                img(src='~@/assets/footer.png' alt='footer image')
+
 </template>
 
 <script>
@@ -46,15 +71,24 @@ import { Slideshow } from 'eagle.js';
 export default {
   mixins: [Slideshow],
   data() {
-    return { isPortrait: true };
+    return { isPortrait: true, loading: true };
   },
   mounted() {
     this.isPortrait = ![-90, 90].includes(window.orientation);
-    console.log('ok');
+    this.step = 4;
 
     window.addEventListener('orientationchange', () => {
       this.isPortrait = ![-90, 90].includes(window.orientation);
     });
+  },
+  watch: {
+    step() {
+      if (this.step === 5) {
+        setTimeout(() => {
+          this.loading = false;
+        }, 300);
+      }
+    },
   },
 };
 </script>
@@ -90,6 +124,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 255;
 
         div {
             display: inline-block;
@@ -163,6 +198,64 @@ export default {
             small {
                 font-size: 20px;
                 color: #5e81ac;
+            }
+        }
+    }
+
+    .step--5 {
+        @include flexAlign();
+
+        background : black;
+        text-align: center;
+
+        a {
+            display: inline-block;
+        }
+
+        img {
+            width: 70%;
+        }
+    }
+
+    .step--4 {
+        @include flexAlign();
+
+        &__wrap {
+            display: inline-block;
+            text-align: center;
+        }
+
+        a {
+            color: #d8dee9 !important;
+            text-decoration: none;
+        }
+
+        p {
+            color: #d8dee9;
+            grid-template: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 20px;
+            letter-spacing: 0;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #d8dee9;
+
+            span {
+                font-family: "Fira Code";
+                font-size: 30px;
+                letter-spacing: 0;
+                font-weight: 300;
+                vertical-align: middle;
+                position: relative;
+                margin-left: 5px;
+                margin-right: 5px;
+                top: -2px;
             }
         }
     }

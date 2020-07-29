@@ -1,9 +1,9 @@
 <template>
-    <div class="ac-presentation">
+    <div class="mc-presentation">
         <img
             src="@/assets/profile.png"
             alt="profile photo"
-            class="ac-presentation__profile"
+            class="mc-presentation__profile"
         />
         <h1>
             Choisissez un travail que vous aimez et vous
@@ -13,10 +13,10 @@
                 Confucius
             </small>
         </h1>
-        <div class="ac-presentation__details">
+        <div class="mc-presentation__details">
             <PresentationDetails />
         </div>
-        <div class="ac-presentation__continue">
+        <div class="mc-presentation__continue">
             <img
                 src="@/assets/mouse.png"
                 alt="mouse icon"
@@ -48,8 +48,7 @@ export default {
     }
 }
 
-.ac-presentation {
-
+.mc-presentation {
     &__continue {
         text-align: center;
         margin-top: 10px;
@@ -57,16 +56,15 @@ export default {
     }
 
     &__details {
-        margin-top: 200px;
+        margin-top: 130px;
     }
 
     &__profile {
         height: 150px;
         width: 150px;
-        background: white;
         display: block;
-        margin-top: 134px;
-        margin-bottom: 134px;
+        margin-top: 104px;
+        margin-bottom: 104px;
         margin-left: auto;
         margin-right: auto;
         border-radius: 150px;
@@ -74,7 +72,6 @@ export default {
     }
 
     h1 {
-        color: #d8dee9;
         width: 923px;
         margin-left: auto;
         margin-right: auto;
@@ -88,10 +85,46 @@ export default {
         margin-bottom: 0;
 
         small {
-            color: #5e81ac;
             position: absolute;
             right: 50px;
             bottom: -59px;
+        }
+    }
+}
+</style>
+
+<style lang="scss" scoped>
+@media (prefers-color-scheme: light) {
+    .mc-presentation {
+        &__details {
+            color: #2e3440;
+
+            i {
+                color: #2E3440;
+            }
+        }
+
+        h1 {
+            color: #2e3440;
+
+            small {
+                color: #5e81ac;
+            }
+        }
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .mc-presentation {
+        &__details {
+            color: #d8dee9;
+        }
+
+        h1 {
+            color: #d8dee9;
+
+            small {
+                color: #5e81ac;
+            }
         }
     }
 }
